@@ -7,3 +7,4 @@ temperature = 0.1
 top_p = 1
 top_k = 40
 typical = 0.5
+stop_sequence = "USER:"
