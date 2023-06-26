@@ -58,7 +58,6 @@ class Predictor:
 
         self.generator.begin_beam_search()
         
-        res_line = prompt
         for i in range(max_new_tokens):
             gen_token = self.generator.beam_search()
             if gen_token.item() == self.tokenizer.eos_token_id:
