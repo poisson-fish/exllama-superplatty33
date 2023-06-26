@@ -10,8 +10,25 @@ class Predictor:
     def setup(self):
         # Model moved to network storage
         model_directory = f"/workspace/{model_name}"
-        # snapshot_download(repo_id=repo_name, local_dir=model_directory)
         
+        # print the file list and the directory list inside /
+        print("Files and directories in /:")
+        for item in os.scandir("/"):
+            if item.is_file():
+                print(f"File: {item.name}")
+            elif item.is_dir():
+                print(f"Directory: {item.name}")
+
+# print the file list and the directory list inside f"/workspace/{model_name}"
+        print(f"Files and directories in /workspace/{model_name}:")
+        for item in os.scandir(f"/workspace/{model_name}"):
+            if item.is_file():
+                print(f"File: {item.name}")
+            elif item.is_dir():
+                print(f"Directory: {item.name}")
+                
+        # snapshot_download(repo_id=repo_name, local_dir=model_directory)
+        print()
         tokenizer_path = os.path.join(model_directory, "tokenizer.model")
         model_config_path = os.path.join(model_directory, "config.json")
         st_pattern = os.path.join(model_directory, "*.safetensors")
