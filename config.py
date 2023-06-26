@@ -1,6 +1,6 @@
-repo_name = "TheBloke/guanaco-65B-GPTQ"
-model_name = "guanaco-65B-GPTQ"
-model_basename = "Guanaco-65B-GPTQ-4bit.act-order"
+repo_name = "Panchovix/airoboros-65b-gpt4-1.2-4bit-32g-actorder"
+model_name = "airoboros-65b-gpt4-1.2-4bit-32g-actorder"
+model_basename = "airoboros-65b-gpt4-1.2-4bit-32g-actorder.safetensors"
 max_new_tokens = 1000
 token_repetition_penalty_max = 1.2
 temperature = 0.1
