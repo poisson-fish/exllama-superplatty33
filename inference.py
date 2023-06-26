@@ -8,9 +8,9 @@ from exllama.generator import ExLlamaGenerator
 
 class Predictor:
     def setup(self):
-        # Download model
-        model_directory = f"/data/{model_name}"
-        snapshot_download(repo_id=repo_name, local_dir=model_directory)
+        # Model moved to network storage
+        model_directory = f"/workspace/{model_name}"
+        # snapshot_download(repo_id=repo_name, local_dir=model_directory)
         
         tokenizer_path = os.path.join(model_directory, "tokenizer.model")
         model_config_path = os.path.join(model_directory, "config.json")
