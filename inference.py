@@ -63,7 +63,6 @@ class Predictor:
             if gen_token.item() == self.tokenizer.eos_token_id:
                 self.generator.replace_last_token(self.tokenizer.newline_token_id)
                 break
-            if gen_token.item() == self.tokenizer.eos_token_id: break
 
             num_res_tokens += 1
             text = self.tokenizer.decode(self.generator.sequence_actual[:, -num_res_tokens:][0])
