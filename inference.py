@@ -1,5 +1,5 @@
 import torch
-from config import repo_name, model_name, model_basename, max_new_tokens, token_repetition_penalty_max, temperature, top_p, top_k, typical, stop_sequence
+from config import repo_name, model_name, model_basename, max_new_tokens, token_repetition_penalty_max, temperature, top_p, top_k, stop_sequence
 from huggingface_hub import snapshot_download
 import logging, os, glob
 from exllama.model import ExLlama, ExLlamaCache, ExLlamaConfig
@@ -43,7 +43,6 @@ class Predictor:
         self.generator.settings.temperature = temperature
         self.generator.settings.top_p = top_p
         self.generator.settings.top_k = top_k
-        self.generator.settings.typical = typical
         
     def predict(self, prompt):
         
