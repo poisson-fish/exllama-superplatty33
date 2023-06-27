@@ -9,7 +9,7 @@ from exllama.generator import ExLlamaGenerator
 class Predictor:
     def setup(self):
         # Model moved to network storage
-        model_directory = f"/workspace/{model_name}"
+        model_directory = f"/runpod-volume/{model_name}"
         
         # print the file list and the directory list inside /
         print("Files and directories in /:")
@@ -20,8 +20,8 @@ class Predictor:
                 print(f"Directory: {item.name}")
 
 # print the file list and the directory list inside f"/workspace/{model_name}"
-        print(f"Files and directories in /workspace/{model_name}:")
-        for item in os.scandir(f"/workspace/{model_name}"):
+        print(f"Files and directories in /runpod-volume/{model_name}:")
+        for item in os.scandir(f"/runpod-volume/{model_name}"):
             if item.is_file():
                 print(f"File: {item.name}")
             elif item.is_dir():
