@@ -60,14 +60,11 @@ class Predictor:
         for i in range(max_new_tokens):
             gen_token = self.generator.beam_search()
             if gen_token.item() == self.tokenizer.eos_token_id:
-                self.generator.replace_last_token(self.tokenizer.newline_token_id)
                 return text
 
             num_res_tokens += 1
             text = self.tokenizer.decode(self.generator.sequence_actual[:, -num_res_tokens:][0])
             if text.lower().endswith(stop_sequence.lower()):
-                plen = self.tokenizer.encode(stop_sequence).shape[-1]
-                self.generator.gen_rewind(plen)
                 return text
 
         return text
