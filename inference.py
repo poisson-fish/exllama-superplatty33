@@ -27,7 +27,7 @@ class Predictor:
 
 # print the file list and the directory list inside f"/workspace/{model_name}"
         print(f"Files and directories in /runpod-volume:")
-        for item in os.scandir(f"/runpod-volume"):
+        for item in os.scandir(f"/runpod-volume/{model_name}"):
             if item.is_file():
                 print(f"File: {item.name}")
             elif item.is_dir():
