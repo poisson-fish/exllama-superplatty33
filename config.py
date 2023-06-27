@@ -1,6 +1,6 @@
-repo_name = "Panchovix/airoboros-65b-gpt4-1.2-4bit-32g-actorder"
-model_name = "airoboros-65b-gpt4-1.2-4bit-32g-actorder"
-model_basename = "airoboros-65b-gpt4-1.2-4bit-32g-actorder.safetensors"
+repo_name = "TheBloke/airoboros-65B-gpt4-1.3-GPTQ"
+model_name = "airoboros-65B-gpt4-1.3-GPTQ"
+model_basename = " airoboros-65b-gpt4-1.3-GPTQ-4bit--1g.act.order.safetensors"
 max_new_tokens = 1000
 token_repetition_penalty_max = 1.2
 temperature = 0.1
