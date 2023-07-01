@@ -6,4 +6,4 @@ token_repetition_penalty_max = 1.176470
 temperature = 0.1
 top_p = 0.1
 top_k = 40
-stop_sequence = "User:"
+stop_sequences = ["User:", "Reference"]

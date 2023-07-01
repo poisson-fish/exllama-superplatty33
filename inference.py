@@ -1,5 +1,5 @@
 import torch
-from config import repo_name, model_name, model_basename, max_new_tokens, token_repetition_penalty_max, temperature, top_p, top_k, stop_sequence
+from config import repo_name, model_name, model_basename, max_new_tokens, token_repetition_penalty_max, temperature, top_p, top_k, stop_sequences
 from huggingface_hub import snapshot_download
 import logging, os, glob
 from exllama.model import ExLlama, ExLlamaCache, ExLlamaConfig
@@ -67,7 +67,8 @@ class Predictor:
             num_res_tokens += 1
             text = self.tokenizer.decode(self.generator.sequence_actual[:, -num_res_tokens:][0])
             new_text = text[len(prompt):]
-            if new_text.lower().endswith(stop_sequence.lower()):
-                return new_text[:-len(stop_sequence)]
+            for sequence in stop_sequences:
+                if new_text.lower().endswith(sequence.lower()):
+                    return new_text[:-len(sequence)]
 
         return new_text
