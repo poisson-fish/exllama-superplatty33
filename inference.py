@@ -9,10 +9,9 @@ from exllama.generator import ExLlamaGenerator
 class Predictor:
     def setup(self):
         # Model moved to network storage
-        model_directory = f"/runpod-volume/{model_name}"
-                
+        model_directory = f"/runpod-volume/{model_name}"  
+                   
         # snapshot_download(repo_id=repo_name, local_dir=model_directory)
-        print()
         tokenizer_path = os.path.join(model_directory, "tokenizer.model")
         model_config_path = os.path.join(model_directory, "config.json")
         st_pattern = os.path.join(model_directory, "*.safetensors")
@@ -55,16 +54,20 @@ class Predictor:
         ids = self.tokenizer.encode(prompt)
         num_res_tokens = ids.shape[-1]  # Decode from here
         self.generator.gen_begin(ids)
-
+        
+        text = ""
+        new_text = ""
+        
         self.generator.begin_beam_search()
         for i in range(max_new_tokens):
             gen_token = self.generator.beam_search()
             if gen_token.item() == self.tokenizer.eos_token_id:
-                return text
+                return new_text
 
             num_res_tokens += 1
             text = self.tokenizer.decode(self.generator.sequence_actual[:, -num_res_tokens:][0])
-            if text.lower().endswith(stop_sequence.lower()):
-                return text
+            new_text = text[len(prompt):]
+            if new_text.lower().endswith(stop_sequence.lower()):
+                return new_text[:-len(stop_sequence)]
 
-        return text
+        return new_text

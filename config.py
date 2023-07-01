@@ -1,9 +1,9 @@
-repo_name = "TheBloke/airoboros-65B-gpt4-1.3-GPTQ"
-model_name = "airoboros-65B-gpt4-1.3-GPTQ"
-model_basename = " airoboros-65b-gpt4-1.3-GPTQ-4bit--1g.act.order.safetensors"
+repo_name = "TheBloke/airoboros-65B-gpt4-1.4-GPTQ"
+model_name = "airoboros-65B-gpt4-1.4-GPTQ"
+model_basename = "airoboros-65b-gpt4-1.4-GPTQ-4bit--1g.act.order"
 max_new_tokens = 1000
 token_repetition_penalty_max = 1.176470
-temperature = 0.7
+temperature = 0.1
 top_p = 0.1
 top_k = 40
-stop_sequence = "USER:"
+stop_sequence = "User:"
